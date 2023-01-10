@@ -1,10 +1,21 @@
 import React from 'react'
 
+import { About, Footer, Header, Skills, Testimonial, Work } from "./container/index"
+
+import { Navbar } from "./components/index"
+import "./App.scss"
+
 const App = () => {
   return (
-    <h1>
-      app
-    </h1> 
+    <div className='app'>
+      <Navbar/>
+      <Header/>
+      <About/>
+      <Work/>
+      <Skills/>
+      <Testimonial/>
+      <Footer/>
+    </div> 
   )
 }
 
