@@ -4,7 +4,6 @@ import api from './api.png';
 import cpp from './cpp.png';
 import css from './css.png';
 import figma from './figma.png';
-import flutter from './flutter.png';
 import git from './git.png';
 import graphql from './graphql.png';
 import html from './html.png';
@@ -34,6 +33,7 @@ import bolt from './bolt.png';
 import nb from './nb.png';
 import skype from './skype.png';
 import spotify from './spotify.png';
+import atomic from './atomic.png';
 
 export default {
   email,
@@ -42,7 +42,6 @@ export default {
   cpp,
   css,
   figma,
-  flutter,
   git,
   graphql,
   html,
@@ -69,4 +68,5 @@ export default {
   nb,
   skype,
   spotify,
+  atomic
 };
