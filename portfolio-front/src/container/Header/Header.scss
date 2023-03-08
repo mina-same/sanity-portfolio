@@ -1,4 +1,4 @@
-#home {
+#Home {
   position: relative;
   background: url("../../assets/bgIMG.png");
   background-size: cover;
@@ -29,7 +29,7 @@
     flex-direction: column;
   }
   @media screen and (min-width: 450px) {
-    padding: 11rem 1rem 2rem;
+    padding: 10rem 1rem 2rem;
   }
 }
 
@@ -198,4 +198,8 @@
       margin: 1rem;
     }
   }
+}
+
+.copyright{
+  display: none;
 }

@@ -1,35 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
+import { AppWrap } from "../../wrapper";
+
 import images from "../../assets/images";
 import "./About.scss";
 
 import { urlFor, client } from "../../client";
-
-// const abouts = [
-//   {
-//     title: "Web Development",
-//     description: "building a beautiful and scalable web pages.",
-//     imgUrl: images.about01,
-//   },
-//   {
-//     title: "Web Design",
-//     description: "I can design wonderfully web.",
-//     imgUrl: images.about02,
-//   },
-//   {
-//     title: "front-end",
-//     description: "I can build web using HTML, CSS, React.js, and Tailwind CSS.",
-//     imgUrl: images.about03,
-//   },
-//   {
-//     title: "back-end",
-//     description:
-//       "work on server-side and databases using NODEJS, EXPRESS, MOGODB and SQLSERVER.",
-//     imgUrl: images.about04,
-//   },
-//   // {title: "Web ui/ux", description: "I can design a clean and modern UI using Figma and Adobe XD.", imgUrl: images.about05},
-// ];
 
 const About = () => {
   const [abouts, setAbouts] = useState([]);
@@ -43,7 +20,7 @@ const About = () => {
 
   }, []);
   return (
-    <>
+    <div className="About__fixing">
       <h2 className="head-text">
         I Know That
         <span> Good Development</span>
@@ -70,8 +47,8 @@ const About = () => {
           </motion.div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
-export default About;
+export default AppWrap(About, "About");

@@ -35,6 +35,9 @@
     padding: 4rem 1rem 2rem;
   }
 }
+.app-wrapper .app-flex{
+  display: none;
+}
 
 .copyright {
   width: 100%;
@@ -102,7 +105,8 @@
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
-
+  position: relative;
+  bottom: 65px;
   padding: 1rem;
 
   div {
