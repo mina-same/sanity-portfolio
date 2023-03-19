@@ -113,6 +113,11 @@
       bottom: 150px;
       right: 100px;
     }
+    @media screen and (max-width: 768px) {
+      width: calc(100% - 100px);
+      bottom: 60px;
+      right: 45px;
+    }
   }
 
   .overlay__circle {
@@ -149,8 +154,8 @@
   }
 
   img {
-    width: 60px;
-    height: 60px;
+    width: 50%;
+    height: 50%;
   }
 
   div:nth-child(1) {
@@ -197,6 +202,24 @@
     div {
       margin: 1rem;
     }
+  }
+
+  @media screen and (max-width: 768px) {
+    div:nth-child(1) {
+      width: 50px;
+      height: 50px;
+    }
+
+    div:nth-child(2) {
+      width: 60px;
+      height: 60px;
+    }
+
+    div:nth-child(3) {
+      width: 50px;
+      height: 50px;
+    }
+    flex-wrap: nowrap;
   }
 }
 
