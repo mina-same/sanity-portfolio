@@ -14,6 +14,11 @@ export default {
       type: 'string',
     },
     {
+      name: 'iconName',
+      title: 'IconName',
+      type: 'string',
+    },
+    {
       name: 'projectLink',
       title: 'Project Link',
       type: 'string',

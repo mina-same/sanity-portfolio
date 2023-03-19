@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { AiFillEye } from "react-icons/ai";
-import { SiAdobe } from "react-icons/si";
+import { AiFillEye, AiFillGithub } from "react-icons/ai";
+import { SiAdobe, SiCodeforces } from "react-icons/si";
 import { motion } from "framer-motion";
 
-import { AppWrap } from "../../wrapper";
+import { AppWrap,MotionWrap } from "../../wrapper";
 import { urlFor, client } from "../../client";
 import "./Work.scss";
 
 import "./Work.scss";
 
 const Work = () => {
-  const [activeFilter, setActiveFilter] = useState("all");
+  const [activeFilter, setActiveFilter] = useState("All");
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
   const [works, setWorks] = useState([]);
   const [filterWork, setFilterWork] = useState([]);
+
 
   useEffect(() => {
     const query = '*[_type == "works"]';
@@ -24,7 +25,20 @@ const Work = () => {
     });
   }, []);
 
-  const handelWorkFilter = (item) => {};
+  const handelWorkFilter = (item) => {
+    setActiveFilter(item);
+    setAnimateCard([{y: 100, opacity: 0}]);
+
+    setTimeout(() => {
+      setAnimateCard([{ y: 0, opacity: 1 }]);
+      if(item === "All"){
+        setFilterWork(works);
+      }else{
+        setFilterWork(works.filter((work) => work.tags.includes(item)));
+      }
+    }, 500);
+
+  };
 
   return (
     <>
@@ -35,10 +49,10 @@ const Work = () => {
       </h2>
 
       <div className="app__work-filter">
-        {["UI/UX", "Web App", "Mobile App", "React Js", "all"].map(
+        {["UI/UX", "Web App", "Mobile App", "React Js", "Database", "Problem Solving", "All"].map(
           (item, index) => (
             <div
-              key={index}
+              key={item + index}
               onClick={() => handelWorkFilter(item)}
               className={`app__work-filter-item app__flex p-text ${
                 activeFilter === item ? "item-active" : ""
@@ -81,9 +95,9 @@ const Work = () => {
                     whileInView={{ scale: [0, 1] }}
                     whileHover={{ scale: [1, 0.90] }}
                     transition={{ duration: 0.25 }}
-                    className="app__flex"
+                    className="app__flex mina"
                   >
-                    <SiAdobe />
+                    {`${work.iconName}` === "AiFillGithub" ? <AiFillGithub /> : `${work.iconName}` === "SiCodeforces" ? <SiCodeforces /> : `${work.iconName}` === "SiAdobe" ? <SiAdobe /> : <AiFillGithub /> }
                   </motion.div>
                 </a>
               </motion.div>
@@ -108,4 +122,8 @@ const Work = () => {
   );
 };
 
-export default AppWrap(Work, "Work");
+export default AppWrap(
+  MotionWrap(Work,"app__works"),
+  "Work",
+  "app__primarybg"  
+);
